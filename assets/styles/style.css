@@ -25,7 +25,7 @@ main{
   padding-right: 2vw;
   padding-bottom: 2vw;
   padding-left: 2vw;
-  padding-top: 2vh;
+  padding-top: 4vh;
   min-height: 75vh;
 }
 
@@ -134,5 +134,21 @@ div>.card-img-top{
   color: white !important;
 }
 
+#botonBuscar{
+  padding-bottom: 2vh;
+}
+
+.card-body{
+  background-color: #2c3453 !important;
+  color: white !important;
+}
+
+#card1,#card2,#card3,#card4,#card5{
+  padding: 10px;
+}
+
+#parrafoPreCards{
+  padding: 2vh;
+}
 
 

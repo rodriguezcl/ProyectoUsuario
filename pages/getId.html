@@ -69,34 +69,39 @@
         <div id="container" class="row row-cols-1 row-cols-md-2 g-3">
 
 
-            <!-- <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Monto</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" id="txtMonto" placeholder="Ingrese un monto en pesos">
-            </div>
-
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default2">Tipo</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
                 </div>
-                
-                <select class="form-select" id="txtTipo">
-                    <option selected value="Entrada">Entrada</option>
-                    <option value="Salida">Salida</option>
-
-                </select>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="txtID" placeholder="Ingrese un ID">
             </div>
 
-            <div>
-                <button type="button" class="btn btn-outline-success" value="Agregar"
-                    onclick="agregar()">Agregar</button>
-                <button type="button" class="btn btn-outline-danger" value="Cancelar"
-                    onclick="cancelar()">Cancelar</button>
-            </div> -->
-
         </div>
+        <div id="botonBuscar">
+            <button type="button" class="btn btn-outline-primary"  value="Buscar"
+                onclick="getId(id)">Buscar</button> 
+        </div>
+
+        <div id="container" class="row row-cols-1 row-cols-md-2 g-3">
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th class="titulo-tabla">Id</th>
+                        <th class="titulo-tabla">Nombre</th>
+                        <th class="titulo-tabla">Apellido</th>
+                        <th class="titulo-tabla">Dirección</th>
+                        <th class="titulo-tabla">Teléfono</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="getId">
+                    
+                </tbody>
+            </table>
+        </div>
+
 
 
 
