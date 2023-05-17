@@ -1,38 +1,53 @@
-let montos = JSON.parse(localStorage.getItem("montos")) || [];
-let tipos = JSON.parse(localStorage.getItem("tipos")) || [];
+function getAll()
+{
+ 
+ fetch("http://localhost:58112/api/Usuario")
+ .then( (response) => response.json())
+ .then ( (data) => {
 
+  console.log(data)
 
-let j = montos.length;
-
-function agregar() {
-
-    const txtMonto = document.getElementById("txtMonto");
-    const txtTipo = document.getElementById("txtTipo");
-
-
-    montos[j] = parseFloat(txtMonto.value);
-    tipos[j] = txtTipo.value;
-
-    j++;
-
-
-    localStorage.removeItem("montos");
-    localStorage.removeItem("tipos");
-
-    localStorage.setItem("montos", JSON.stringify(montos));
-    localStorage.setItem("tipos", JSON.stringify(tipos));
-
-
-    //fin tabla
-
-    txtMonto.value = ""
-    txtTipo.value = "";
-    txtMonto.focus();
+ })   
 }
 
-function cancelar(){
-    txtMonto.value = ""
-    txtTipo.value = "";
-    txtMonto.focus();
+function getId(id)
+{
 
+
+    fetch("http://localhost:58112/api/Usuario" + id)
+    .then( (response) => response.json())
+    .then ( (data) => {
+
+      console.log(data)
+
+ })
+}
+
+function post(obj)
+{
+
+    fetch("http://localhost:58112/api/Usuario", {
+
+        method: "Post",
+        body: JSON.stringify( obj)
+
+    })
+}
+
+function Eliminar(id)
+{
+    fetch("http://localhost:58112/api/Usuario" + id, {
+      method: "Delete"
+})
+}
+
+
+function Put(id, obj)
+{
+
+    fetch("http://localhost:58112/api/Usuario" + id, {
+     method: "Put",
+     body: JSON.stringify( obj)
+
+})
 }

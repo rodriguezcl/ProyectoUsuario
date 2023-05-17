@@ -55,7 +55,7 @@
                 <path fill-rule="evenodd"
                     d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
             </svg></a>
-        <a class="btn-carousel" href="#">Get</a>
+        <a class="btn-carousel" href="#" onclick="getAll()">Get</a>
 
         <a class="arrowNav" href="./getId.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -67,35 +67,22 @@
     <main>
 
         <div id="container" class="row row-cols-1 row-cols-md-2 g-3">
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th class="titulo-tabla">Id</th>
+                        <th class="titulo-tabla">Nombre</th>
+                        <th class="titulo-tabla">Apellido</th>
+                        <th class="titulo-tabla">Dirección</th>
+                        <th class="titulo-tabla">Teléfono</th>
+                    </tr>
 
+                </thead>
 
-            <!-- <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Monto</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" id="txtMonto" placeholder="Ingrese un monto en pesos">
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default2">Tipo</span>
-                </div>
-                
-                <select class="form-select" id="txtTipo">
-                    <option selected value="Entrada">Entrada</option>
-                    <option value="Salida">Salida</option>
-
-                </select>
-            </div>
-
-            <div>
-                <button type="button" class="btn btn-outline-success" value="Agregar"
-                    onclick="agregar()">Agregar</button>
-                <button type="button" class="btn btn-outline-danger" value="Cancelar"
-                    onclick="cancelar()">Cancelar</button>
-            </div> -->
-
+                <tbody>
+                    
+                </tbody>
+            </table>
         </div>
 
 
