@@ -21,7 +21,6 @@
   </head>
 
   <body>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -189,7 +188,7 @@
             type="button"
             class="btn btn-outline-success"
             value="Agregar"
-            onclick="post(obj)"
+            onclick="post()"
           >
             Agregar
           </button>
@@ -218,14 +217,25 @@
     <script src="./js/funciones.js"></script>
 
     <script>
-      let obj = {
-        Nombre: "string",
-        Apellido: "string",
-        Direccion: "string",
-        Telefono: "string",
-      };
+      //   let obj = {
+      //     Nombre: "string",
+      //     Apellido: "string",
+      //     Direccion: "string",
+      //     Telefono: "string",
+      //   };
 
       function post(obj) {
+        const _txtNombrePost = document.getElementById("txtNombrePost");
+        const _txtApellidoPost = document.getElementById("txtApellidoPost");
+        const _txtDireccionPost = document.getElementById("txtDireccionPost");
+        const _txtTelefonoPost = document.getElementById("txtTelefonoPost");
+
+        let obj = {
+          Nombre: _txtNombrePost.value,
+          Apellido: _txtApellidoPost.value,
+          Direccion: _txtDireccionPost.value,
+          Telefono: _txtTelefonoPost.value,
+        };
         $.ajax({
           type: "POST",
           dataType: "json",
@@ -233,14 +243,16 @@
           data: obj,
           success: function (data) {
             alert(data);
+            _txtNombrePost.value = "";
+            _txtApellidoPost.value = "";
+            _txtDireccionPost.value = "";
+            _txtTelefonoPost.value = "";
           },
           error: function (error) {
             alert(error);
           },
         });
       }
-
-    
     </script>
   </body>
 </html>
