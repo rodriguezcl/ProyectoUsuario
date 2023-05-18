@@ -27,7 +27,6 @@ function getId(id) {
   fetch("http://localhost:58112/api/Usuario/" + id)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       const _tbody = document.getElementById("getId");
       let _tr = `<tr>
       <td>${data.id} </td>
