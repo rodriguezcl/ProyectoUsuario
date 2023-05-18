@@ -217,12 +217,7 @@
     <script src="./js/funciones.js"></script>
 
     <script>
-      //   let obj = {
-      //     Nombre: "string",
-      //     Apellido: "string",
-      //     Direccion: "string",
-      //     Telefono: "string",
-      //   };
+      let obj = "";
 
       function post(obj) {
         const _txtNombrePost = document.getElementById("txtNombrePost");
@@ -230,7 +225,7 @@
         const _txtDireccionPost = document.getElementById("txtDireccionPost");
         const _txtTelefonoPost = document.getElementById("txtTelefonoPost");
 
-        let obj = {
+        obj = {
           Nombre: _txtNombrePost.value,
           Apellido: _txtApellidoPost.value,
           Direccion: _txtDireccionPost.value,
@@ -242,11 +237,12 @@
           url: "http://localhost:58112/api/Usuario",
           data: obj,
           success: function (data) {
-            alert(data);
+            alert("POST OK!");
             _txtNombrePost.value = "";
             _txtApellidoPost.value = "";
             _txtDireccionPost.value = "";
             _txtTelefonoPost.value = "";
+            _txtNombrePost.focus();
           },
           error: function (error) {
             alert(error);
