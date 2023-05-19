@@ -143,6 +143,11 @@ div>.card-img-top{
   color: white !important;
 }
 
+.card-body:hover{
+  background-color: #198754 !important;
+  color: white !important;
+}
+
 #card1,#card2,#card3,#card4,#card5{
   padding: 10px;
 }
