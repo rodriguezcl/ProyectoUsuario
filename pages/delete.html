@@ -166,31 +166,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/funciones.js"></script>
-    <script>
-      let idEliminar = "";
-
-      function eliminar(idEliminar) {
-        const _txtIDEliminar = document.getElementById("txtIDEliminar");
-
-        idEliminar = {
-          id: _txtIDEliminar.value,
-        };
-
-        $.ajax({
-          type: "DELETE",
-          dataType: "json",
-          url: "http://localhost:58112/api/Usuario/"+ idEliminar.id,
-          data: idEliminar,
-          success: function (data) {
-            alert("DELETE OK!");
-            _txtIDEliminar.value = "";
-            _txtIDEliminar.focus();
-          },
-          error: function (error) {
-            alert(error);
-          },
-        });
-      }
-    </script>
+   
   </body>
 </html>

@@ -231,42 +231,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/funciones.js"></script>
-    <script>
-      let obj = "";
-
-      function put(obj) {
-        const _txtIDPut = document.getElementById("txtIDPut");
-        const _txtNombrePut = document.getElementById("txtNombrePut");
-        const _txtApellidoPut = document.getElementById("txtApellidoPut");
-        const _txtDireccionPut = document.getElementById("txtDireccionPut");
-        const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
-
-        obj = {
-          id: _txtIDPut.value,
-          Nombre: _txtNombrePut.value,
-          Apellido: _txtApellidoPut.value,
-          Direccion: _txtDireccionPut.value,
-          Telefono: _txtTelefonoPut.value,
-        };
-        $.ajax({
-          type: "PUT",
-          dataType: "json",
-          url: "http://localhost:58112/api/Usuario/"+obj.id,
-          data: obj,
-          success: function (data) {
-            alert("PUT OK!");
-            _txtIDPut.value = "";
-            _txtNombrePut.value = "";
-            _txtApellidoPut.value = "";
-            _txtDireccionPut.value = "";
-            _txtTelefonoPut.value = "";
-            _txtIDPut.focus();
-          },
-          error: function (error) {
-            alert(error);
-          },
-        });
-      }
-    </script>
+   
   </body>
 </html>
