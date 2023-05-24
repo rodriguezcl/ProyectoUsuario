@@ -134,7 +134,7 @@ div>.card-img-top{
   color: white !important;
 }
 
-#botonBuscar{
+.botonBuscar{
   padding-bottom: 2vh;
 }
 
@@ -158,6 +158,10 @@ div>.card-img-top{
 
 .no-text-decoration{
   text-decoration: none;
+}
+
+.botonPut{
+  margin-top: 0 !important;
 }
 
 
