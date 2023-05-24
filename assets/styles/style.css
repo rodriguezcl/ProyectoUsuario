@@ -150,10 +150,12 @@ div>.card-img-top{
 
 #card1,#card2,#card3,#card4,#card5{
   padding: 10px;
+  height: 20vh;
 }
 
 #parrafoPreCards{
   padding: 2vh;
+  height: 20vh;
 }
 
 .no-text-decoration{
