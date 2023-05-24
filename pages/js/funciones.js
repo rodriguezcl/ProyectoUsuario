@@ -1,4 +1,4 @@
-//FUNCION GET 
+//FUNCION GET
 
 function getAll() {
   fetch("http://localhost:58112/api/Usuario")
@@ -138,6 +138,54 @@ function eliminar(idEliminar) {
     },
     error: function (error) {
       alert(error);
+    },
+  });
+}
+
+//FUNCION BUSCAR POR ID EN DELETE
+
+function buscarDelete(id) {
+  const _txtIDEliminar = document.getElementById("txtIDEliminar");
+  id = _txtIDEliminar.value;
+
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "http://localhost:58112/api/Usuario/" + id,
+    success: function (data) {
+      const txtNombreDelete = document.getElementById("txtNombreDelete");
+      const txtApellidoDelete = document.getElementById("txtApellidoDelete");
+      const txtDireccionDelete = document.getElementById("txtDireccionDelete");
+      const txtTelefonoDelete = document.getElementById("txtTelefonoDelete");
+
+      txtNombreDelete.value = data.Nombre;
+      txtApellidoDelete.value = data.Apellido;
+      txtDireccionDelete.value = data.Direccion;
+      txtTelefonoDelete.value = data.Telefono;
+    },
+  });
+}
+
+//FUNCION BUSCAR POR ID EN PUT
+
+function buscarPut(id) {
+  const txtIDPut = document.getElementById("txtIDPut");
+  id = txtIDPut.value;
+
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "http://localhost:58112/api/Usuario/" + id,
+    success: function (data) {
+      const _txtNombrePut = document.getElementById("txtNombrePut");
+      const _txtApellidoPut = document.getElementById("txtApellidoPut");
+      const _txtDireccionPut = document.getElementById("txtDireccionPut");
+      const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
+
+      _txtNombrePut.value = data.Nombre;
+      _txtApellidoPut.value = data.Apellido;
+      _txtDireccionPut.value = data.Direccion;
+      _txtTelefonoPut.value = data.Telefono;
     },
   });
 }
