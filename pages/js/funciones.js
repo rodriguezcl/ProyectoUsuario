@@ -189,3 +189,48 @@ function buscarPut(id) {
     },
   });
 }
+
+//FUNCION SELECT POR ID
+
+function selectID() {
+  fetch("http://localhost:58112/api/Usuario")
+    .then((response) => response.json())
+    .then((data) => {
+      const _select = document.getElementById("txtID");
+      data.forEach((o) => {
+        let _option = `<option value="${o.id}">${o.id}</option>`;
+
+        _select.innerHTML += _option;
+      });
+    });
+}
+
+//FUNCION SELECT POR ID EN PUT
+
+function selectIDPut() {
+  fetch("http://localhost:58112/api/Usuario")
+    .then((response) => response.json())
+    .then((data) => {
+      const _select = document.getElementById("txtIDPut");
+      data.forEach((o) => {
+        let _option = `<option value="${o.id}">${o.id}</option>`;
+
+        _select.innerHTML += _option;
+      });
+    });
+}
+
+//FUNCION SELECT POR ID EN DELETE
+
+function selectIDDelete() {
+  fetch("http://localhost:58112/api/Usuario")
+    .then((response) => response.json())
+    .then((data) => {
+      const _select = document.getElementById("txtIDEliminar");
+      data.forEach((o) => {
+        let _option = `<option value="${o.id}">${o.id}</option>`;
+
+        _select.innerHTML += _option;
+      });
+    });
+}
