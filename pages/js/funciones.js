@@ -39,7 +39,7 @@ function getId(id) {
 
       _tbody.innerHTML += _tr;
 
-      _txtID.value = "";
+     
       _txtID.focus();
     });
 }
@@ -77,7 +77,7 @@ function put(obj) {
       _txtIDPut.focus();
     },
     error: function (error) {
-      alert(error);
+      alert("Debe seleccionar un ID pre-existente");
     },
   });
 }
@@ -133,11 +133,11 @@ function eliminar(idEliminar) {
     data: idEliminar,
     success: function (data) {
       alert("DELETE OK!");
-      _txtIDEliminar.value = "";
+      
       _txtIDEliminar.focus();
     },
     error: function (error) {
-      alert(error);
+      alert("Debe seleccionar un ID pre-existente");
     },
   });
 }
@@ -233,4 +233,41 @@ function selectIDDelete() {
         _select.innerHTML += _option;
       });
     });
+}
+
+//FUNCION VALIDAR CAMPOS EN POST
+
+function validarPost() {
+  const txtNombre = document.getElementById("txtNombrePost");
+  const txtApellido = document.getElementById("txtApellidoPost");
+  const txtDireccion = document.getElementById("txtDireccionPost");
+  const txtTelefono = document.getElementById("txtTelefonoPost");
+  
+  if (txtNombre.value === "" || txtApellido.value === "" || txtDireccion.value === "" || txtTelefono.value === "") {
+    alert("Por favor, complete todos los campos obligatorios.");
+    return false;
+  }
+
+  else{
+    return post(obj);
+  }
+}
+
+//FUNCION VALIDAR CAMPOS EN PUT
+
+function validarPut() {
+  const _txtIDPut = document.getElementById("txtIDPut");
+  const _txtNombrePut = document.getElementById("txtNombrePut");
+  const _txtApellidoPut = document.getElementById("txtApellidoPut");
+  const _txtDireccionPut = document.getElementById("txtDireccionPut");
+  const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
+  
+  if (_txtIDPut.value === "" || _txtNombrePut.value === "" || _txtApellidoPut.value === "" || _txtDireccionPut.value === "" || _txtTelefonoPut.value === "") {
+    alert("Por favor, complete todos los campos obligatorios.");
+    return false;
+  }
+
+  else{
+    return put(obj);
+  }
 }
