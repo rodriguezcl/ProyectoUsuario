@@ -133,7 +133,7 @@ function eliminar(idEliminar) {
     data: idEliminar,
     success: function (data) {
       alert("DELETE OK!");
-      
+      _txtIDEliminar.value = "";
       _txtIDEliminar.focus();
     },
     error: function (error) {
