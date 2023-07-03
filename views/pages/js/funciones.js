@@ -44,6 +44,21 @@ function getId(id) {
     });
 }
 
+//FUNCION SELECT POR ID
+
+function selectID() {
+  fetch("http://localhost:58112/api/Usuario")
+    .then((response) => response.json())
+    .then((data) => {
+      const _select = document.getElementById("txtID");
+      data.forEach((o) => {
+        let _option = `<option value="${o.id}">${o.id}</option>`;
+
+        _select.innerHTML += _option;
+      });
+    });
+}
+
 //FUNCION PUT
 
 let obj = "";
@@ -82,6 +97,64 @@ function put(obj) {
   });
 }
 
+//FUNCION BUSCAR POR ID EN PUT
+
+function buscarPut(id) {
+  const txtIDPut = document.getElementById("txtIDPut");
+  id = txtIDPut.value;
+
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "http://localhost:58112/api/Usuario/" + id,
+    success: function (data) {
+      const _txtNombrePut = document.getElementById("txtNombrePut");
+      const _txtApellidoPut = document.getElementById("txtApellidoPut");
+      const _txtDireccionPut = document.getElementById("txtDireccionPut");
+      const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
+
+      _txtNombrePut.value = data.Nombre;
+      _txtApellidoPut.value = data.Apellido;
+      _txtDireccionPut.value = data.Direccion;
+      _txtTelefonoPut.value = data.Telefono;
+    },
+  });
+}
+
+//FUNCION SELECT POR ID EN PUT
+
+function selectIDPut() {
+  fetch("http://localhost:58112/api/Usuario")
+    .then((response) => response.json())
+    .then((data) => {
+      const _select = document.getElementById("txtIDPut");
+      data.forEach((o) => {
+        let _option = `<option value="${o.id}">${o.id}</option>`;
+
+        _select.innerHTML += _option;
+      });
+    });
+}
+
+//FUNCION VALIDAR CAMPOS EN PUT
+
+function validarPut() {
+  const _txtIDPut = document.getElementById("txtIDPut");
+  const _txtNombrePut = document.getElementById("txtNombrePut");
+  const _txtApellidoPut = document.getElementById("txtApellidoPut");
+  const _txtDireccionPut = document.getElementById("txtDireccionPut");
+  const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
+  
+  if (_txtIDPut.value === "" || _txtNombrePut.value === "" || _txtApellidoPut.value === "" || _txtDireccionPut.value === "" || _txtTelefonoPut.value === "") {
+    alert("Por favor, complete todos los campos obligatorios.");
+    return false;
+  }
+
+  else{
+    return put(obj);
+  }
+}
+
 //FUNCION POST
 
 function post(obj) {
@@ -113,6 +186,24 @@ function post(obj) {
       alert(error);
     },
   });
+}
+
+//FUNCION VALIDAR CAMPOS EN POST
+
+function validarPost() {
+  const txtNombre = document.getElementById("txtNombrePost");
+  const txtApellido = document.getElementById("txtApellidoPost");
+  const txtDireccion = document.getElementById("txtDireccionPost");
+  const txtTelefono = document.getElementById("txtTelefonoPost");
+  
+  if (txtNombre.value === "" || txtApellido.value === "" || txtDireccion.value === "" || txtTelefono.value === "") {
+    alert("Por favor, complete todos los campos obligatorios.");
+    return false;
+  }
+
+  else{
+    return post(obj);
+  }
 }
 
 //FUNCION DELETE
@@ -166,60 +257,6 @@ function buscarDelete(id) {
   });
 }
 
-//FUNCION BUSCAR POR ID EN PUT
-
-function buscarPut(id) {
-  const txtIDPut = document.getElementById("txtIDPut");
-  id = txtIDPut.value;
-
-  $.ajax({
-    type: "GET",
-    dataType: "json",
-    url: "http://localhost:58112/api/Usuario/" + id,
-    success: function (data) {
-      const _txtNombrePut = document.getElementById("txtNombrePut");
-      const _txtApellidoPut = document.getElementById("txtApellidoPut");
-      const _txtDireccionPut = document.getElementById("txtDireccionPut");
-      const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
-
-      _txtNombrePut.value = data.Nombre;
-      _txtApellidoPut.value = data.Apellido;
-      _txtDireccionPut.value = data.Direccion;
-      _txtTelefonoPut.value = data.Telefono;
-    },
-  });
-}
-
-//FUNCION SELECT POR ID
-
-function selectID() {
-  fetch("http://localhost:58112/api/Usuario")
-    .then((response) => response.json())
-    .then((data) => {
-      const _select = document.getElementById("txtID");
-      data.forEach((o) => {
-        let _option = `<option value="${o.id}">${o.id}</option>`;
-
-        _select.innerHTML += _option;
-      });
-    });
-}
-
-//FUNCION SELECT POR ID EN PUT
-
-function selectIDPut() {
-  fetch("http://localhost:58112/api/Usuario")
-    .then((response) => response.json())
-    .then((data) => {
-      const _select = document.getElementById("txtIDPut");
-      data.forEach((o) => {
-        let _option = `<option value="${o.id}">${o.id}</option>`;
-
-        _select.innerHTML += _option;
-      });
-    });
-}
-
 //FUNCION SELECT POR ID EN DELETE
 
 function selectIDDelete() {
@@ -233,41 +270,4 @@ function selectIDDelete() {
         _select.innerHTML += _option;
       });
     });
-}
-
-//FUNCION VALIDAR CAMPOS EN POST
-
-function validarPost() {
-  const txtNombre = document.getElementById("txtNombrePost");
-  const txtApellido = document.getElementById("txtApellidoPost");
-  const txtDireccion = document.getElementById("txtDireccionPost");
-  const txtTelefono = document.getElementById("txtTelefonoPost");
-  
-  if (txtNombre.value === "" || txtApellido.value === "" || txtDireccion.value === "" || txtTelefono.value === "") {
-    alert("Por favor, complete todos los campos obligatorios.");
-    return false;
-  }
-
-  else{
-    return post(obj);
-  }
-}
-
-//FUNCION VALIDAR CAMPOS EN PUT
-
-function validarPut() {
-  const _txtIDPut = document.getElementById("txtIDPut");
-  const _txtNombrePut = document.getElementById("txtNombrePut");
-  const _txtApellidoPut = document.getElementById("txtApellidoPut");
-  const _txtDireccionPut = document.getElementById("txtDireccionPut");
-  const _txtTelefonoPut = document.getElementById("txtTelefonoPut");
-  
-  if (_txtIDPut.value === "" || _txtNombrePut.value === "" || _txtApellidoPut.value === "" || _txtDireccionPut.value === "" || _txtTelefonoPut.value === "") {
-    alert("Por favor, complete todos los campos obligatorios.");
-    return false;
-  }
-
-  else{
-    return put(obj);
-  }
 }
